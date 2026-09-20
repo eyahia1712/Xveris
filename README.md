@@ -14,7 +14,12 @@ reproducible and can be explained down to the line it came from.
 Built for the **Averis x Monash Hackathon 2026** problem statement,
 *Shipping document verification: from email inbox to discrepancy report*.
 
+![A container ship sailing out of port, drawn in the Xveris colours](docs/screenshots/ship.png)
+
 ![The Xveris landing page](docs/screenshots/landing.png)
+
+*The landing page at `/`: what Xveris is, and the ship that carries the cargo
+those documents describe.*
 
 ---
 
@@ -339,7 +344,7 @@ Every service is one environment variable away; nothing needs a code change.
 | **Shah Rabbi Hasan Foyej** | Lincoln University College | BSc (Hons) Computer Science — Network Technology & Cybersecurity | Year 3, Sem 2 | [@foyej-14](https://github.com/foyej-14) | [foyej](https://www.linkedin.com/in/foyej) |
 | **Abu Sadat Md Sayem** | Lincoln University College | Bachelor of Information Technology | Year 3, Sem 1 | [@abuxadat](https://github.com/abuxadat) | [abusadatmdsayem](https://www.linkedin.com/in/abusadatmdsayem) |
 | **Lai Cen Yee** | Monash University | Computer Science — Algorithms and Software | Year 2, Sem 2 | [@lcylaicenyee](https://github.com/lcylaicenyee) | [cen-yee-lai](https://www.linkedin.com/in/cen-yee-lai-7158a142b/) |
-| **Lwin Win** | Lincoln University College | BSc (Hons) Computer Science — Network Technology & Cybersecurity | — | — | — |
+| **Lwin Win** | Lincoln University College | BSc (Hons) Computer Science — Network Technology & Cybersecurity | Year 3, Sem 1 | [@lwinwin786-web](https://github.com/lwinwin786-web) | [lwin-win](https://www.linkedin.com/in/lwin-win-685b993a2) |
 
 ---
 
