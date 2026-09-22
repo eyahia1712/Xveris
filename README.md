@@ -11,8 +11,24 @@ person actually has to decide.**
 sorts mail; plain rules decide whether two values match, so every verdict is
 reproducible and can be explained down to the line it came from.
 
-Built for the **Averis x Monash Hackathon 2026** problem statement,
-*Shipping document verification: from email inbox to discrepancy report*.
+Built by **Team Red Sea** for the **Averis x Monash Hackathon 2026** problem
+statement, *Shipping document verification: from email inbox to discrepancy report*.
+
+---
+
+## 🔗 Everything in one place
+
+| | Link |
+|---|---|
+| 🌐 **Live prototype** | **[xveris.vercel.app](https://xveris.vercel.app)** — the full product, already processed, no setup |
+| 🎬 **Demo video** | _link to follow_ |
+| 📄 **Documentation (PDF)** | **[Technical architecture · implementation · challenges · roadmap](https://drive.google.com/file/d/1KD0RkDSA0RXf7ve2XDZWs3-J__fm9paD/view?usp=sharing)** |
+| 💻 **Source code** | **[github.com/eyahia1712/Xveris](https://github.com/eyahia1712/Xveris)** — this repository |
+| 📦 **Dataset** | The organisers' 520 emails and 250 attachments, bundled in [`data/sample/`](data/sample) |
+| 🧪 **The checker, as tests** | [`lib/pipeline/pipeline.test.ts`](lib/pipeline/pipeline.test.ts) — 23 tests over the whole inbox |
+| ⚡ **Run it yourself** | [Four commands](#-run-it), no API key required |
+
+---
 
 ![A container ship sailing out of port, drawn in the Xveris colours](docs/screenshots/ship.png)
 
@@ -336,20 +352,25 @@ Every service is one environment variable away; nothing needs a code change.
 
 ---
 
-## 👥 Team
+## 👥 Team Red Sea
 
-| Member | Institution | Course | Year | GitHub | LinkedIn |
-|---|---|---|---|---|---|
-| **Eya Hia** | Lincoln University College | BSc (Hons) Computer Science — Network Technology & Cybersecurity | Year 3, Sem 1 | [@eyahia1712](https://github.com/eyahia1712) | [eya-hia](https://www.linkedin.com/in/eya-hia) |
-| **Shah Rabbi Hasan Foyej** | Lincoln University College | BSc (Hons) Computer Science — Network Technology & Cybersecurity | Year 3, Sem 2 | [@foyej-14](https://github.com/foyej-14) | [foyej](https://www.linkedin.com/in/foyej) |
-| **Abu Sadat Md Sayem** | Lincoln University College | Bachelor of Information Technology | Year 3, Sem 1 | [@abuxadat](https://github.com/abuxadat) | [abusadatmdsayem](https://www.linkedin.com/in/abusadatmdsayem) |
-| **Lai Cen Yee** | Monash University | Computer Science — Algorithms and Software | Year 2, Sem 2 | [@lcylaicenyee](https://github.com/lcylaicenyee) | [cen-yee-lai](https://www.linkedin.com/in/cen-yee-lai-7158a142b/) |
-| **Lwin Win** | Lincoln University College | BSc (Hons) Computer Science — Network Technology & Cybersecurity | Year 3, Sem 1 | [@lwinwin786-web](https://github.com/lwinwin786-web) | [lwin-win](https://www.linkedin.com/in/lwin-win-685b993a2) |
+Five students from Lincoln University College and Monash University. Xveris was
+designed, built, tested and deployed during the hackathon.
+
+| Member | Role | Institution | GitHub | LinkedIn |
+|---|---|---|---|---|
+| **Eya Hia** | Team lead — full-stack & AI pipeline | Lincoln University College | [@eyahia1712](https://github.com/eyahia1712) | [eya-hia](https://www.linkedin.com/in/eya-hia) |
+| **Shah Rabbi Hasan Foyej** | Documents — parsing & field extraction | Lincoln University College | [@foyej-14](https://github.com/foyej-14) | [foyej](https://www.linkedin.com/in/foyej) |
+| **Abu Sadat Md Sayem** | Cloud — deployment & DevOps | Lincoln University College | [@abuxadat](https://github.com/abuxadat) | [abusadatmdsayem](https://www.linkedin.com/in/abusadatmdsayem) |
+| **Lai Cen Yee** | Backend — API & rule engine | Monash University | [@lcylaicenyee](https://github.com/lcylaicenyee) | [cen-yee-lai](https://www.linkedin.com/in/cen-yee-lai-7158a142b/) |
+| **Lwin Win** | Frontend — dashboard & inbox map | Lincoln University College | [@lwinwin786-web](https://github.com/lwinwin786-web) | [lwin-win](https://www.linkedin.com/in/lwin-win-685b993a2) |
 
 ---
 
 ## 📚 Documentation
 
+- **[Full project documentation (PDF)](https://drive.google.com/file/d/1KD0RkDSA0RXf7ve2XDZWs3-J__fm9paD/view?usp=sharing)** — technical
+  architecture with diagrams, implementation details, challenges faced, future roadmap
 - **`/docs`** in the running app — architecture, how to run it, self-evaluation
 - **`.env.example`** — every environment variable, with what it switches on
 - **`lib/pipeline/pipeline.test.ts`** — the checker's behaviour, stated as tests
@@ -357,4 +378,4 @@ Every service is one environment variable away; nothing needs a code change.
 
 ---
 
-*Averis x Monash Hackathon 2026 · Team Xveris*
+*Xveris · Team Red Sea · Averis x Monash Hackathon 2026*
