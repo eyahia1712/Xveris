@@ -14,6 +14,13 @@ reproducible and can be explained down to the line it came from.
 Built by **Team Red Sea** for the **Averis x Monash Hackathon 2026** problem
 statement, *Shipping document verification: from email inbox to discrepancy report*.
 
+![A container ship sailing out of port, drawn in the Xveris colours](docs/screenshots/ship.png)
+
+![The Xveris landing page](docs/screenshots/landing.png)
+
+*The landing page at `/`: what Xveris is, and the ship that carries the cargo
+those documents describe.*
+
 ---
 
 ## 🔗 Everything in one place
@@ -22,20 +29,11 @@ statement, *Shipping document verification: from email inbox to discrepancy repo
 |---|---|
 | 🌐 **Live prototype** | **[xveris.vercel.app](https://xveris.vercel.app)** — the full product, already processed, no setup |
 | 🎬 **Demo video** | _link to follow_ |
-| 📄 **Documentation (PDF)** | **[Technical architecture · implementation · challenges · roadmap](https://drive.google.com/file/d/1KD0RkDSA0RXf7ve2XDZWs3-J__fm9paD/view?usp=sharing)** |
+| 📄 **Slide deck / documentation** | **[Technical architecture · implementation · challenges · roadmap](https://drive.google.com/file/d/1KD0RkDSA0RXf7ve2XDZWs3-J__fm9paD/view?usp=sharing)** |
 | 💻 **Source code** | **[github.com/eyahia1712/Xveris](https://github.com/eyahia1712/Xveris)** — this repository |
 | 📦 **Dataset** | The organisers' 520 emails and 250 attachments, bundled in [`data/sample/`](data/sample) |
 | 🧪 **The checker, as tests** | [`lib/pipeline/pipeline.test.ts`](lib/pipeline/pipeline.test.ts) — 23 tests over the whole inbox |
 | ⚡ **Run it yourself** | [Four commands](#-run-it), no API key required |
-
----
-
-![A container ship sailing out of port, drawn in the Xveris colours](docs/screenshots/ship.png)
-
-![The Xveris landing page](docs/screenshots/landing.png)
-
-*The landing page at `/`: what Xveris is, and the ship that carries the cargo
-those documents describe.*
 
 ---
 
