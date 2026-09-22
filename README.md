@@ -27,13 +27,11 @@ those documents describe.*
 
 | | Link |
 |---|---|
-| 🌐 **Live prototype** | **[xveris.vercel.app](https://xveris.vercel.app)** — the full product, already processed, no setup |
+| 🌐 **Live prototype** | **[xveris.vercel.app](https://xveris.vercel.app)** |
 | 🎬 **Demo video** | _link to follow_ |
-| 📄 **Slide deck / documentation** | **[Technical architecture · implementation · challenges · roadmap](https://drive.google.com/file/d/1KD0RkDSA0RXf7ve2XDZWs3-J__fm9paD/view?usp=sharing)** |
-| 💻 **Source code** | **[github.com/eyahia1712/Xveris](https://github.com/eyahia1712/Xveris)** — this repository |
-| 📦 **Dataset** | The organisers' 520 emails and 250 attachments, bundled in [`data/sample/`](data/sample) |
-| 🧪 **The checker, as tests** | [`lib/pipeline/pipeline.test.ts`](lib/pipeline/pipeline.test.ts) — 23 tests over the whole inbox |
-| ⚡ **Run it yourself** | [Four commands](#-run-it), no API key required |
+| 📄 **Slide deck / documentation** | **[Xveris document slide](https://drive.google.com/file/d/1KD0RkDSA0RXf7ve2XDZWs3-J__fm9paD/view?usp=sharing)** |
+| 💻 **Source code** | **[github.com/eyahia1712/Xveris](https://github.com/eyahia1712/Xveris)** |
+| ⚡ **Run it yourself** | **[Four commands](#-run-it)** |
 
 ---
 
@@ -328,6 +326,94 @@ Every service is one environment variable away; nothing needs a code change.
   it to Cloud Tasks (see the scaling path).
 - Opening all 520 emails on the map at once is legible but dense — the map is
   designed to be opened one queue at a time.
+
+---
+
+## 📝 Written responses
+
+### Problem–solution alignment
+
+Every line of the brief maps to something that runs.
+
+| The brief asks for | Xveris does it |
+|---|---|
+| Classify each email | Five queues, every email placed with a reason |
+| Extract the seven fields | By meaning, from txt, xlsx, docx, PDF and scans |
+| Compare SI against draft BL | Deterministic rules, SI as the reference |
+| Flag discrepancies | 46 caught, each with both values and its source line |
+| Handle what it cannot read | 20 escalated with a reason, never guessed |
+| Produce a discrepancy report | `/report`, printable, plus a `submission.json` export |
+
+### AI and cloud infrastructure integration
+
+**AI.** Claude (`claude-opus-5`) via the Anthropic API, with structured outputs. It
+classifies every email and gives a rationale, reads scanned pages with vision, and
+maps layouts the parser has not seen. A rule engine classifies independently and any
+disagreement is surfaced. **Claude is never asked whether two values match** — that is
+plain code, so a verdict is reproducible.
+
+**Cloud.** Each service is one environment variable away; no code changes between a
+laptop and production.
+
+| Service | In use |
+|---|---|
+| Hosting | Vercel (live) · Dockerfile targets Google Cloud Run |
+| Database | PostgreSQL when `DATABASE_URL` is set, JSON files otherwise |
+| AI | Anthropic API — `ANTHROPIC_API_KEY` |
+| Mail | Gmail API, OAuth 2.0 read + send, token AES-256-GCM encrypted in the user's cookie |
+| Scheduling | `/api/cron` for Cloud Scheduler or Vercel Cron — `CRON_SECRET` |
+
+### User feedback and testing
+
+- **23 automated tests run the checker over all 520 emails**, including every
+  deliberately difficult document. One test asserts that no flagged field is a
+  formatting artefact, which is what keeps the zero-false-alarm figure honest.
+- **Correction is built into the product.** A reviewer types the real value, it is
+  stored as evidence marked `human`, and the comparison recomputes under the same
+  rules — so a review can become a caught mismatch. That is the feedback loop a real
+  desk would use daily.
+- **Tested against the organisers' own data**, not our own fixtures, and re-run after
+  every change. We had no external users inside the hackathon window; the first
+  external test is the pilot described under scalability.
+
+### Coding challenges
+
+Each one was found against real data and is now covered by a test.
+
+| Challenge | Fix |
+|---|---|
+| Three BLs were scans with no text layer | Claude vision reads the page; escalated as unreadable when AI is off |
+| PDF text glued label to value (`…Intermediate ConsigneeCERIEX`) | Longest matching label wins, so the value starts in the right place |
+| `____MT` compared equal to itself and passed | Underscores normalised away; blanks classed as missing |
+| One port written four ways (`SGSIN`, `SINGAPORE (SGSIN)`…) | Ports canonicalised, but a code alone never proves the port |
+| Subject lines are recycled thread titles | Classify on the body and attachments, not the subject |
+| The cloud has no writable disk | Postgres when configured, JSON otherwise; a processed snapshot ships in the repo |
+
+### Success metrics
+
+| Metric | Result |
+|---|---|
+| Emails classified | 520 / 520, no processing failures |
+| Document checks | 129 |
+| Mismatches caught at draft stage | 46 |
+| Escalated with a reason, never guessed | 20 |
+| False alarms from formatting | 0 |
+| Difficult cases handled correctly | 20 / 20 |
+| Full re-check of the inbox | ~0.5 s |
+| Automated tests | 23, over the whole dataset |
+
+### Scalability plans
+
+- **Every email is independent.** The 8-way worker pool becomes stateless workers on
+  Cloud Tasks or Pub/Sub without touching the pipeline.
+- **Push, not poll.** Gmail `users.watch` replaces polling, so a document is checked
+  seconds after it arrives.
+- **One row per email** in Postgres instead of one JSON document per run, so storage
+  and querying scale with volume.
+- **Cloud Run scales to zero and out on demand**, and has no serverless time limit —
+  the right home for a full-mailbox batch.
+- **More desks, more mailboxes.** Outlook joins through the same `InboxSource`
+  interface; roles, permissions and an audit log make it multi-user.
 
 ---
 
