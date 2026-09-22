@@ -19,7 +19,7 @@ const RESOURCES = [
   { href: "https://github.com/eyahia1712/Xveris", label: "GitHub repository", external: true },
   { href: "/dashboard", label: "Live demo" },
   { href: "/docs#runbook", label: "Demo runbook" },
-  { href: "https://www.averisglobal.com", label: "Averis", external: true },
+  { href: "https://drive.google.com/file/d/1EmXw_awr25AQg1iQh0FrC3luo_h9lK4J/view?usp=sharing", label: "Demo video", external: true },
 ];
 
 const LINK = "transition-opacity hover:opacity-70";

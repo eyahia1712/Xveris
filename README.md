@@ -28,7 +28,7 @@ those documents describe.*
 | | Link |
 |---|---|
 | 🌐 **Live prototype** | **[xveris.vercel.app](https://xveris.vercel.app)** |
-| 🎬 **Demo video** | _link to follow_ |
+| 🎬 **Demo video** | **[Watch the 5-minute demo](https://drive.google.com/file/d/1EmXw_awr25AQg1iQh0FrC3luo_h9lK4J/view?usp=sharing)** |
 | 📄 **Slide deck / documentation** | **[Xveris document slide](https://drive.google.com/file/d/1KD0RkDSA0RXf7ve2XDZWs3-J__fm9paD/view?usp=sharing)** |
 | 💻 **Source code** | **[github.com/eyahia1712/Xveris](https://github.com/eyahia1712/Xveris)** |
 | ⚡ **Run it yourself** | **[Four commands](#-run-it)** |
