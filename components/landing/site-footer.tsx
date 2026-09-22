@@ -16,7 +16,7 @@ const NAVIGATION = [
 
 const RESOURCES = [
   { href: "/docs", label: "Docs" },
-  { href: "/docs#github", label: "GitHub repository" },
+  { href: "https://github.com/eyahia1712/Xveris", label: "GitHub repository", external: true },
   { href: "/dashboard", label: "Live demo" },
   { href: "/docs#runbook", label: "Demo runbook" },
   { href: "https://www.averisglobal.com", label: "Averis", external: true },
